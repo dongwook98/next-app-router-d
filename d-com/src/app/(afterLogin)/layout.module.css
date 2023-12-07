@@ -18,7 +18,6 @@
 }
 
 .leftSectionFixed {
-  background-color: aquamarine;
   position: fixed;
   /* fixed일때는 width:100% 하면 작동안되서 inherit 사용 */
   width: inherit;
@@ -94,7 +93,6 @@
 }
 
 .rightSection {
-  background-color: blue;
   width: 350px;
   height: 100%;
 }
