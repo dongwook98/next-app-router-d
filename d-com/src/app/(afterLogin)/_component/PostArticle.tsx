@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Router from 'next/router';
 import { ReactNode } from 'react';
 import style from './post.module.css';
 
@@ -19,6 +18,7 @@ type Props = {
     Images: any[];
   };
 };
+
 export default function PostArticle({ children, post }: Props) {
   const router = useRouter();
 

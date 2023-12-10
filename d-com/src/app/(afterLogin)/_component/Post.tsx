@@ -5,11 +5,17 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 import ActionButtons from '@/app/(afterLogin)/_component/ActionButtons';
 import PostArticle from './PostArticle';
+import { faker } from '@faker-js/faker';
+import PostImages from './PostImages';
 
 dayjs.locale('ko');
 dayjs.extend(relativeTime);
 
-export default function Post() {
+type Props = {
+  noImage?: boolean;
+};
+
+export default function Post({ noImage }: Props) {
   const target = {
     postId: 1,
     User: {
@@ -19,8 +25,29 @@ export default function Post() {
     },
     content: '나는야 김옐둥',
     createdAt: new Date(),
-    Images: [],
+    Images: [] as any[],
   };
+
+  if (Math.random() > 0.5 && !noImage) {
+    target.Images.push(
+      {
+        imageId: 1,
+        link: faker.image.urlLoremFlickr(),
+      },
+      {
+        imageId: 2,
+        link: faker.image.urlLoremFlickr(),
+      },
+      {
+        imageId: 3,
+        link: faker.image.urlLoremFlickr(),
+      },
+      {
+        imageId: 4,
+        link: faker.image.urlLoremFlickr(),
+      }
+    );
+  }
   return (
     /**
      * article을 눌렀을때 게시글 상세 페이지(status)로 이동해야 하는데 이 article 하나 바꾸자고 서버 컴포넌트 였던거를 바꾸기 아까움
@@ -49,7 +76,9 @@ export default function Post() {
             <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
           </div>
           <div>{target.content}</div>
-          <div className={style.postImageSection}></div>
+          <div>
+            <PostImages post={target} />
+          </div>
           <ActionButtons />
         </div>
       </div>
