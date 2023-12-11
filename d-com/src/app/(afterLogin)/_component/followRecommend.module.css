@@ -36,7 +36,7 @@
   width: 76px;
 }
 
-.followButtonSection button {
+/* .followButtonSection button {
   border: none;
   cursor: pointer;
   width: 100%;
@@ -49,4 +49,4 @@
 }
 .followButtonSection button:hover {
   background-color: rgb(39, 44, 48);
-}
+} */

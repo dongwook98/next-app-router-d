@@ -1,10 +1,9 @@
 'use client';
 
 import style from './followRecommend.module.css';
+import FollowButton from './FollowButton';
 
 export default function FollowRecommend() {
-  const onFollow = () => {};
-
   const user = {
     id: 'tain98',
     nickname: '이태인',
@@ -23,7 +22,7 @@ export default function FollowRecommend() {
         <div className={style.count}>@{user.id}</div>
       </div>
       <div className={style.followButtonSection}>
-        <button onClick={onFollow}>팔로우</button>
+        <FollowButton />
       </div>
     </div>
   );
